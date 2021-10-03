@@ -71,7 +71,7 @@
 
 #reset {
   margin-top: 15px;
-  width: 80px;
+  width: 120px;
   background-color: rgb(187, 187, 187);
 }
 
@@ -86,4 +86,23 @@
 }
 .wrong {
   margin-top: 15px;
+}
+.lose {
+  margin: 20px;
+  font-size: 19px;
+}
+.win {
+  margin: 20px;
+  font-size: 19px;
+}
+.result {
+  margin: 20px;
+  font-size: 19px;
+}
+.result span {
+  font-style: italic;
+}
+
+.wr {
+  color: rgb(232, 97, 97);
 }

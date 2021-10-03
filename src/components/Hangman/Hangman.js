@@ -17,7 +17,7 @@ const Hangman = () => {
   const [nWrong, setNWrong] = useState(0);
   const [answer, setAnswer] = useState(randomWord());
   const [guessed, setGuessed] = useState('');
-
+  console.log(answer);
   const resetGame = () => {
     setNWrong(0);
     setGuessed('');
@@ -50,13 +50,23 @@ const Hangman = () => {
   return (
     <div className="Hangman">
       <div className="left">
-        <h1>Adam Asmaca</h1>
+        <h1>Hangmen</h1>
         {answer === guessedWord().join('') ? (
-          <p>Kazandın !</p>
+          <>
+            <p className="win"> YOU WIN!</p>
+            <button id="reset" onClick={resetGame}>
+              Play again
+            </button>
+          </>
         ) : nWrong === maxWrong ? (
           <div>
-            <p>Kaybettin </p>
-            <p>Doğru Kelime: {answer}</p>
+            <p className="lose">YOU LOSE</p>
+            <p className="result">
+              Correct word is "<span>{answer}</span>"
+            </p>
+            <button id="reset" onClick={resetGame}>
+              Try again
+            </button>
           </div>
         ) : (
           <div>
@@ -65,11 +75,10 @@ const Hangman = () => {
           </div>
         )}
 
-        <button id="reset" onClick={resetGame}>
-          Tekrar
-        </button>
-
-        <p className="wrong">Yanlış: {nWrong}</p>
+        <p className="wrong">
+          {' '}
+          Wrong : <span className="wr"> {nWrong}</span>
+        </p>
       </div>
       <div className="right">
         <img src={images[nWrong]} alt="hang" />

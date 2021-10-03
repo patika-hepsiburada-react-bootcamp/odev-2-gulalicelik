@@ -6,12 +6,12 @@ import './Hangman.css';
 const Hangman = () => {
   const maxWrong = 5;
   const images = [
-    'http://erencar.com.tr/0.png',
-    'http://erencar.com.tr/1.png',
-    'http://erencar.com.tr/2.png',
-    'http://erencar.com.tr/3.png',
-    'http://erencar.com.tr/4.png',
-    'http://erencar.com.tr/5.png',
+    'http://erencar.com.tr/0.svg',
+    'http://erencar.com.tr/1.svg',
+    'http://erencar.com.tr/2.svg',
+    'http://erencar.com.tr/3.svg',
+    'http://erencar.com.tr/4.svg',
+    'http://erencar.com.tr/5.svg',
   ];
 
   const [nWrong, setNWrong] = useState(0);

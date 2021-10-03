@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { randomWord } from './words';
 
 import './Hangman.css';
@@ -27,9 +27,7 @@ const Hangman = () => {
   const guessedWord = () => {
     return answer.split('').map(ltr => (guessed.includes(ltr) ? ltr : '_'));
   };
-  useEffect(() => {
-    guessedWord();
-  }, [guessed]);
+
   const handleGuess = evt => {
     let ltr = evt.target.value;
     setGuessed(guessed + ltr);

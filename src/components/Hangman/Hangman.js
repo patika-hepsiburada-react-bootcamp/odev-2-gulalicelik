@@ -17,7 +17,7 @@ const Hangman = () => {
   const [nWrong, setNWrong] = useState(0);
   const [answer, setAnswer] = useState(randomWord());
   const [guessed, setGuessed] = useState('');
-  console.log(answer);
+
   const resetGame = () => {
     setNWrong(0);
     setGuessed('');
@@ -29,6 +29,7 @@ const Hangman = () => {
   };
 
   const handleGuess = evt => {
+    console.log(answer);
     let ltr = evt.target.value;
     setGuessed(guessed + ltr);
     setNWrong(nWrong + (answer.includes(ltr) ? 0 : 1));
@@ -83,6 +84,10 @@ const Hangman = () => {
       <div className="right">
         <img src={images[nWrong]} alt="hang" />
       </div>
+      <p className="note">
+        Adam shouldn't have eaten the apple, you too shouldn't be looking at the
+        console.
+      </p>
     </div>
   );
 };

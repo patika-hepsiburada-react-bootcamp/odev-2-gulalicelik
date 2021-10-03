@@ -61,7 +61,7 @@
   font-size: 19px;
   border: 1px solid transparent;
   border-radius: 9px;
-  background-color: #f1f1f1;
+  background-color: #eeeeee;
   display: inline-block;
   height: 50px;
   width: 50px;
@@ -105,4 +105,11 @@
 
 .wr {
   color: rgb(232, 97, 97);
+}
+.note {
+  font-size: 15px;
+  font-style: italic;
+  color: #707070;
+  position: absolute;
+  bottom: 10px;
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { randomWord } from './words';
 
 import './Hangman.css';
@@ -16,23 +16,23 @@ const Hangman = () => {
 
   const [nWrong, setNWrong] = useState(0);
   const [answer, setAnswer] = useState(randomWord());
-  const [guessed, setGuessed] = useState(new Set());
+  const [guessed, setGuessed] = useState('');
 
   const resetGame = () => {
     setNWrong(0);
-    setGuessed(new Set());
+    setGuessed('');
     setAnswer(randomWord());
   };
 
   const guessedWord = () => {
-    return answer.split('').map(ltr => (guessed.has(ltr) ? ltr : '_'));
+    return answer.split('').map(ltr => (guessed.includes(ltr) ? ltr : '_'));
   };
-
+  useEffect(() => {
+    guessedWord();
+  }, [guessed]);
   const handleGuess = evt => {
     let ltr = evt.target.value;
-
-    setGuessed(guessed.add(ltr));
-
+    setGuessed(guessed + ltr);
     setNWrong(nWrong + (answer.includes(ltr) ? 0 : 1));
   };
 
@@ -42,7 +42,7 @@ const Hangman = () => {
         key={index}
         value={ltr}
         onClick={handleGuess}
-        disabled={guessed.has(ltr)}
+        disabled={guessed.includes(ltr)}
       >
         {ltr}
       </button>
